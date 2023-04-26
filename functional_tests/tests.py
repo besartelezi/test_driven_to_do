@@ -123,8 +123,6 @@ class NewVisitorTest(LiveServerTestCase):
 
         # satisfied, they both go back to sleep 
 
-        self.fail('Finish the test!')
-
 
 
 #! checks if it's been executed from command line, rather than imported from another script
