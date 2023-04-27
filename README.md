@@ -23,3 +23,10 @@ Functional Tests are tests that are meant for the application as a whole, from t
 Unit Tests are tests that are meant to test all the different functionalities.
 
 ![flowchart](src/flowchart.png)
+
+## Design and Layout
+It is best practice to not write tests for HOW the design/layout looks like.
+You have to write tests to make sure IF they're properly loaded on the site.
+This is especially important to pick up on problems for when you deploy your code to production.
+
+Write minimal tests that make sure your design and layout are working, without testing **what** it actually is.
