@@ -15,7 +15,7 @@ REPO_URL = 'https://github.com/besartelezi/test_driven_to_do'
 
 def deploy():
     site_folder = f'~/sites/{env.host}'
-    run(f'mkdir -p {site_folder}')
+    os.mkdir(f'{site_folder}')
     with cd(site_folder):
         _get_latest_source()
         _update_virtualenv()
