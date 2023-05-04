@@ -14,7 +14,7 @@ print(getpass.getuser())
 REPO_URL = 'https://github.com/besartelezi/test_driven_to_do'
 
 def deploy():
-    site_folder = f'home/{env.user}/sites/{env.host}'
+    site_folder = f'~/sites/{env.host}'
     run(f'mkdir -p {site_folder}')
     with cd(site_folder):
         _get_latest_source()
