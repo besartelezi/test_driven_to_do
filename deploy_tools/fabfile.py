@@ -9,7 +9,7 @@ def deploy():
     print("checking if folder already exists...")
     site_folder = f'~/sites/test/{env.host}'
     # if not exists(site_folder):
-    #     print("creating folder...")
+    #     print("creating folder...")+
     #     os.makedirs(f'{site_folder}')
     with cd(site_folder):
         print("getting latest source")
@@ -22,6 +22,7 @@ def deploy():
         _update_database()
 
 def _get_latest_source():
+    print("function has been successfully called")
     if exists('.git'):
         print("git fetching")
         run('git fetch')
