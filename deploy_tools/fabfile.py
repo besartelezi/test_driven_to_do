@@ -8,9 +8,9 @@ REPO_URL = 'https://github.com/besartelezi/test_driven_to_do'
 def deploy():
     print("checking if folder already exists...")
     site_folder = f'~/sites/test/{env.host}'
-    if not exists(site_folder):
-        print("creating folder...")
-        os.makedirs(f'{site_folder}')
+    # if not exists(site_folder):
+    #     print("creating folder...")
+    #     os.makedirs(f'{site_folder}')
     with cd(site_folder):
         print("getting latest source")
         _get_latest_source()
