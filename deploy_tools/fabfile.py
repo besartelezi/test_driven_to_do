@@ -3,31 +3,30 @@ from fabric.contrib.files import append, exists
 from fabric.api import cd, env, local, run
 import os, getpass
 
-print(getpass.getuser())
-
-
-
-
-
-
-
 REPO_URL = 'https://github.com/besartelezi/test_driven_to_do'
 
 def deploy():
+    print("checking if folder already exists...")
     site_folder = f'~/sites/test/{env.host}'
     if not exists(site_folder):
+        print("creating folder...")
         os.makedirs(f'{site_folder}')
     with cd(site_folder):
+        print("getting latest source")
         _get_latest_source()
+        print("_update_virtualenv() called")
         _update_virtualenv()
+        print("_create_or_update_dotenv() called")        
         _create_or_update_dotenv()
         _update_static_files()
         _update_database()
 
 def _get_latest_source():
     if exists('.git'):
+        print("git fetching")
         run('git fetch')
     else:
+        print("git cloning")
         run(f'git clone {REPO_URL} .')
     current_commit = local("git log -n 1 --format=%H", capture=True)
     run(f'git reset --hard {current_commit}')
