@@ -11,6 +11,7 @@ def deploy():
     # if not exists(site_folder):
     #     print("creating folder...")+
     #     os.makedirs(f'{site_folder}')
+    print(site_folder + ' : is path currently in use')
     with cd(site_folder):
         print("getting latest source")
         _get_latest_source()
