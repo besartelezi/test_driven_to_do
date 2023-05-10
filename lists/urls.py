@@ -21,5 +21,4 @@ urlpatterns = [
     # (.+) = capture group, will match any characters up to the following '/'
     # captured text = gets passed to the view as an argument
     url(r'^(\d+)/$', views.view_list, name='view_list'),
-    url(r'^(\d+)/add_item$', views.add_item, name='add_item')
     ]
