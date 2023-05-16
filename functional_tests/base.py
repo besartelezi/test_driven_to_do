@@ -33,6 +33,9 @@ class FunctionalTest(StaticLiveServerTestCase):
                     raise e
                 time.sleep(0.5)
 
+    def get_item_input_box(self):
+        return self.browser.find_element_by_id('id_text')
+
     # fn -> argument is now a function that will get passed
     def wait_for(self, fn):
         start_time = time.time()
