@@ -30,3 +30,6 @@ You have to write tests to make sure IF they're properly loaded on the site.
 This is especially important to pick up on problems for when you deploy your code to production.
 
 Write minimal tests that make sure your design and layout are working, without testing **what** it actually is.
+
+# File Structure
+For every python file that exists for a certain purpose in the lists directory (models, views, forms), there exists a test file in the tests directory.
