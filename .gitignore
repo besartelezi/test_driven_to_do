@@ -5,3 +5,9 @@ __pycache__
 *.pyc
 /static
 .env
+/vendor
+/node_modules
+composer.phar
+composer.lock
+.DS_Store
+templates.js
