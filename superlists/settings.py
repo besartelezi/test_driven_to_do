@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,14 +22,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 if 'DJANGO_DEBUG_FALSE' in os.environ:  
     DEBUG = False
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
-    ALLOWED_HOSTS = [os.environ['SITENAME']]  
+    SECRET_KEY = config('DJANGO_SECRET_KEY')
+    ALLOWED_HOSTS = [config('SITENAME')]  
 else:
     DEBUG = True  
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
 
-
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config('EMAIL_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 # Application definition
@@ -45,6 +50,9 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = [
+    'accounts.authentication.PasswordlessAuthenticationBackend',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
